@@ -1,0 +1,21 @@
+- title t('.resend_confirmation_instructions', default: 'Resend confirmation instructions')
+
+= stylesheet_link_tag 'bootstrap_and_overrides', media: 'all'
+= stylesheet_link_tag 'sessions', media: 'all'
+= javascript_include_tag 'application'
+
+- if devise_error_messages!.present? || flash[:alert].present?
+  .row
+    .span11.offset1
+      .alert.alert-error
+        %button.close{"data-dismiss" => "alert", :type => "button"} ×
+        = devise_error_messages!
+        = flash[:alert]
+.container
+  = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { class: 'form-signin', method: :post }) do |f|
+    %h2.form-signin-heading= t('.resend_confirmation_instructions', default: 'Resend confirmation instructions')
+    = f.email_field :email, class: 'input-block-level', placeholder: t('activerecord.attributes.user.email')
+    = f.submit t('.resend_confirmation_instructions', default: 'Resend confirmation instructions'),  class: 'btn btn-large btn-primary'
+    %p
+    %p.text-right= render 'devise/shared/links'
+    %p

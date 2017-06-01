@@ -1,0 +1,8 @@
+- current_folder.items.each do |item|
+  %tr.items
+    %td
+      %i.icon-file
+      = link_to item.filename.html_safe, folder_item_path(current_folder, item)
+    %td= humanize_date_in_time_zone(item.created_at)
+    %td= number_to_human_size(item.size)
+    %td= item_actions(item)

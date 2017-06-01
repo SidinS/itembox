@@ -1,0 +1,42 @@
+%table#main-table.table.table-striped.tablesorter
+  %thead
+    %tr
+      %td= t('table.titles.name')
+      %td= t('table.titles.modified')
+      %td= t('table.titles.size')
+      %td= t('table.titles.actions')
+  %tbody
+    - unless current_folder == root_folder
+      %tr
+        %td= link_to '...', root_path
+        %td
+        %td
+        %td
+      %tr
+        %td= link_to_if root_folder.id != current_folder.root_folder_id, '..', folder_path(current_folder.root_folder_id)
+        %td
+        %td
+        %td
+    - FolderDecorator.decorate_collection(@folder.subfolders).each do |folder|
+      %tr
+        %td
+          = link_to '', folder_path(folder), class: 'icon-folder-close'
+          = best_in_place folder, :title
+        %td
+          = humanize_date_in_time_zone(folder.created_at)
+        %td= number_to_human_size(folder.size)
+        %td
+          = link_to_destroy_folder(folder)
+    = render 'items/show'
+#upload
+  #progress.progress.progress-success.progress-striped
+    .bar{:style => "width: 0%;"}
+.btn-group-justified
+  = form_for Folder.new do |f|
+    = f.hidden_field :root_folder_id, value: current_folder.id
+    = f.submit t('buttons.titles.new_folder'), class: 'btn btn-default btn-block'
+  = form_for [current_folder, current_folder.items.build], html: { multipart: true } do |f|
+    .btn.btn-default.btn-file.btn-block
+      %i.icon-plus
+      = t('buttons.titles.select_files')
+      = f.file_field :file, multiple: true, name: 'item[file]'

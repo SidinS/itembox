@@ -1,0 +1,20 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username:
+  password:
+
+development:
+  <<: *default
+  database: itembox_development
+
+test:
+  <<: *default
+  database: itembox_test
+
+production:
+  <<: *default
+  database: itembox_production
+  username:
+  password:

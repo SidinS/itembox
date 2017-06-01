@@ -1,0 +1,18 @@
+- title t('links.shared')
+%table#main-table.table.table-striped.tablesorter
+  %tbody
+    %tr
+      %td= t('table.titles.name')
+      %td= t('table.titles.modified')
+      %td= t('table.titles.size')
+      %td= t('table.titles.link')
+      %td= t('table.titles.actions')
+    - @items.each do |item|
+      %tr.items
+        %td
+          %i.icon-file
+          = link_to item.filename, folder_item_path(current_folder, item)
+        %td= humanize_date_in_time_zone(item.created_at)
+        %td= number_to_human_size(item.size)
+        %td= link_to item.share_url, item.share_url
+        %td= link_to_share(item)
