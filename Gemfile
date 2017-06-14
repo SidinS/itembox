@@ -26,6 +26,7 @@ gem 'draper', '~> 1.3'
 gem 'devise-i18n-views'
 gem 'file_validators'
 gem 'i18n-js', '>= 3.0.0.rc11'
+gem 'sprockets', '~> 2.8'
 
 group :test, :development do
   gem 'rubocop', require: false

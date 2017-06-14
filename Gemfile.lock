@@ -344,6 +344,7 @@ DEPENDENCIES
   simple_form
   simplecov
   spring
+  sprockets (~> 2.8)
   therubyracer
   timecop
   twitter-bootstrap-rails (~> 2.2.8)
@@ -351,4 +352,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.12.1
+   1.15.0
