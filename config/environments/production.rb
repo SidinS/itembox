@@ -90,10 +90,10 @@ Rails.application.configure do
     authentication: :plain,
     address: 'smtp.mailgun.org',
     port: 587,
-    domain: 'sandboxa41f7fbf32ee4a2fb9e0bb4133aee649.mailgun.org',
-    user_name: 'postmaster@sandboxa41f7fbf32ee4a2fb9e0bb4133aee649.mailgun.org',
-    password: '786d2f409464af2bfd6e9b9bc7c06c85'
+    domain: 'sandbox3e11a0c809c445ac95a4a13c0a8c1886.mailgun.org',
+    user_name: 'postmaster@sandbox3e11a0c809c445ac95a4a13c0a8c1886.mailgun.org',
+    password: '777f7d8730ad9d471a418bf9cf9bb640'
   }
 
-  routes.default_url_options = { host: 'ec2-52-34-212-15.us-west-2.compute.amazonaws.com' }
+  routes.default_url_options = { host: 'ec2-13-58-174-115.us-east-2.compute.amazonaws.com' }
 end
