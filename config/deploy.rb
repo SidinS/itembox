@@ -14,7 +14,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push(
   'uploads'
 )
 set :keep_releases, 5
-set :rails_env, 'development'
+set :rails_env, 'production'
 set :rvm_type, :user
 set :rvm_ruby_version, '2.3.0'
 set :puma_init_active_record, true
