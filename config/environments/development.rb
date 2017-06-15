@@ -43,7 +43,7 @@ Rails.application.configure do
     user_name: 'postmaster@sandbox3e11a0c809c445ac95a4a13c0a8c1886.mailgun.org',
     password: '777f7d8730ad9d471a418bf9cf9bb640'
   }
+  config.secret_key_base = ENV["SECRET_KEY_BASE"]
 
-  routes.default_url_options = { host: 'ec2-13-58-174-115.us-east-2.compute.amazonaws.com' }
-  # config.secret_key_base = ENV["SECRET_KEY_BASE"]
+  routes.default_url_options = { host: 'localhost', port: 3000 }
 end
